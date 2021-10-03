@@ -1,14 +1,14 @@
 {
-  "dialog_nr": 38,
-  "active_location": "class",
-  "dialog_location": "story",
-  "dialog_dia": "Start",
+  "dialog_nr": 3,
+  "active_location": "Amy_room",
+  "dialog_location": "Controlling",
+  "dialog_dia": "time",
   "clothing_dialog": "default",
-  "dage": 0,
-  "name": "Player",
+  "dage": 3,
+  "name": "ann",
   "akward_stat": 10,
-  "time": 6,
-  "dialog_ver": "0",
+  "time": 9,
+  "dialog_ver": "late",
   "Girls": [
     {
       "mood": 50,
@@ -25,9 +25,9 @@
       "story": 0
     },
     {
-      "mood": 50,
+      "mood": 53,
       "name": "Cass",
-      "relationship": 0,
+      "relationship": 4,
       "maxRelationship": 20,
       "story": 0
     },
@@ -60,12 +60,12 @@
       "story": 0
     },
     {
-      "mood": 53,
+      "mood": 56,
       "name": "Amy",
-      "relationship": 2,
+      "relationship": 6,
       "maxRelationship": 20,
       "story": 0
     }
   ],
-  "active_girl_dialog": "BLANK"
+  "active_girl_dialog": "Player"
 }

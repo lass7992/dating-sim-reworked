@@ -115,9 +115,9 @@ class girl extends LocationObject{ //Lav en ekstra klasse der håndtere det med 
         mouseclick[0] = "Girl";
         mouseclick[1] = name;
         if(glow != null){
-        overlay.beginDraw();
-        overlay.image(glow, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
-        overlay.endDraw();
+          overlay.beginDraw();
+          overlay.image(glow, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
+          overlay.endDraw();
         }
       }
       clicklay.beginDraw();

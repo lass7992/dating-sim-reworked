@@ -51,7 +51,7 @@ class LocationObject {
     int startTime;
     int endTime;
     String name;
-    int lastUpdatedTime;
+    int lastUpdatedTime = -10;
     String ActiveImageName;
 
     LocationObject()
@@ -87,11 +87,34 @@ class LocationObject {
     {
         image = newImg;
     }
+
+    boolean mouseOver()
+    {
+      if(alpha(image.get(int(mouseX-x*scale_x) , int(mouseY-y*scale_y))) > 1){      
+        return true;
+      }
+      return false;
+    }
     
     void draw()
     {
+      if(image != null && startTime < time && endTime > time){
+        println("Draw");
+
+        if(mouseOver())
+        {
+            println("over");
+
+            overlay.beginDraw();
+            overlay.rect(x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);
+            //overlay.image(glow, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
+            overlay.endDraw();
+        }
+
+
         clicklay.beginDraw();
-        clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
-        clicklay.endDraw();
+        clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);       //<>// //<>// //<>// //<>//
+        clicklay.endDraw(); 
+      }
     }
 }

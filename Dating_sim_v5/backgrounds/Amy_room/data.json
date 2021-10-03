@@ -15,10 +15,10 @@
     "name": "Amy"
   }],
   "Girls": [{
-    "EndTime": 10,
+    "EndTime": 15,
     "name": "Amy",
     "StartTime": 1,
-    "x": 665,
+    "x": 300,
     "width": 150,
     "y": 290,
     "height": 200

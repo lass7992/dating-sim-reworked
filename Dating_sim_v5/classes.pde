@@ -63,65 +63,68 @@ class Location
   Location(String tempName){
     name = tempName;
     image = loadImage("backgrounds/" + tempName + "/background.png");
-    print("Contructor kald");
 
-    JSONObject presets = loadJSONObject("backgrounds/"+ tempName + "/data.json");
+    try{
+      JSONObject presets = loadJSONObject("backgrounds/"+ tempName + "/data.json");
+      
+      if(presets != null){
     
-    if(presets != null){
-  
-  
-      JSONArray navigationArray = presets.getJSONArray("Navigation");
-      navigationObjects = new LocationObject[navigationArray.size()];
-  
-      for(int i = 0;i < navigationArray.size(); i++){
-        JSONObject navigation = navigationArray.getJSONObject(i);
-        navigationObjects[i] = new LocationObject();
-        navigationObjects[i].name = navigation.getString("name");
-        navigationObjects[i].startTime = navigation.getInt("StartTime");
-        navigationObjects[i].endTime = navigation.getInt("EndTime");
-        navigationObjects[i].x = navigation.getInt("x");
-        navigationObjects[i].y = navigation.getInt("y");
-        navigationObjects[i]._width = navigation.getInt("width");
-        navigationObjects[i]._height = navigation.getInt("height");
+    
+        JSONArray navigationArray = presets.getJSONArray("Navigation");
+        navigationObjects = new LocationObject[navigationArray.size()];
+    
+        for(int i = 0;i < navigationArray.size(); i++){
+          JSONObject navigation = navigationArray.getJSONObject(i);
+          navigationObjects[i] = new LocationObject();
+          navigationObjects[i].name = navigation.getString("name");
+          navigationObjects[i].startTime = navigation.getInt("StartTime");
+          navigationObjects[i].endTime = navigation.getInt("EndTime");
+          navigationObjects[i].x = navigation.getInt("x");
+          navigationObjects[i].y = navigation.getInt("y");
+          navigationObjects[i]._width = navigation.getInt("width");
+          navigationObjects[i]._height = navigation.getInt("height");
+        }
+    
+    
+        JSONArray girlsJson = presets.getJSONArray("Girls");
+        girls = new LocationObject[girlsJson.size()];
+    
+        for(int i = 0;i < girlsJson.size(); i++){
+          JSONObject girlJson = girlsJson.getJSONObject(i);
+          girls[i] = new LocationObject();
+          girls[i].name = girlJson.getString("name");
+          girls[i].startTime = girlJson.getInt("StartTime");
+          girls[i].endTime = girlJson.getInt("EndTime");
+          girls[i].x = girlJson.getInt("x");
+          girls[i].y = girlJson.getInt("y");
+          girls[i]._width = girlJson.getInt("width");
+          girls[i]._height = girlJson.getInt("height");
+        }
+          //TODO DET SKAL LAVES ET ELLER ANDET MED TRIGGERNE HER o.o
+      }else{
+        navigationObjects = new LocationObject[0];
+        girls = new LocationObject[0];
       }
-  
-  
-      JSONArray girlsJson = presets.getJSONArray("Girls");
-      girls = new LocationObject[girlsJson.size()];
-  
-      for(int i = 0;i < girlsJson.size(); i++){
-        JSONObject girlJson = girlsJson.getJSONObject(i);
-        girls[i] = new LocationObject();
-        girls[i].name = girlJson.getString("name");
-        girls[i].startTime = girlJson.getInt("StartTime");
-        girls[i].endTime = girlJson.getInt("EndTime");
-        girls[i].x = girlJson.getInt("x");
-        girls[i].y = girlJson.getInt("y");
-        girls[i]._width = girlJson.getInt("width");
-        girls[i]._height = girlJson.getInt("height");
-      }
-        //TODO DET SKAL LAVES ET ELLER ANDET MED TRIGGERNE HER o.o
-    }else{
-      navigationObjects = new LocationObject[0];
-      girls = new LocationObject[0];
+    }catch(Exception e)
+    {
+      println("Lokationfejlede" + tempName);
     }
   }
 
 
-  void update()
+  void _update()
   {
-    print("Update kald");
     //Tjekker om jeg trykker på ting o.o
 
-    for(int i = 0; i > navigationObjects.length ; i++){ //Dette skal gøres således at der kan være flere forskellige versioner af billederne istedet for at den skal være dynamisk
+    for(int i = 0; i < navigationObjects.length ; i++){ //Dette skal gøres således at der kan være flere forskellige versioner af billederne istedet for at den skal være dynamisk
       if(navigationObjects[i].image == null){
         navigationObjects[i].image = loadImage("backgrounds/" + name + "/Objects/Objects/"+navigationObjects[i].name + ".png");
       }
     }
 
 
-    for(int i = 0; i > girls.length ; i++){
-      if(girls[i].lastUpdatedTime != time && girls[i].startTime > time && girls[i].endTime < time)
+    for(int i = 0; i < girls.length ; i++){
+      if(girls[i].lastUpdatedTime != time && girls[i].startTime < time && girls[i].endTime > time)
       {
         //Kigger igennem alle mapperne og finder det tidspunkt der passer med bedst. (altså den time der er tættest på)
         File[] girlTimeStrings = listFiles("backgrounds/"+name+"/Objects/Girls/"+girls[i].name);
@@ -134,10 +137,16 @@ class Location
 
             File[] girlStoryStrings = listFiles("backgrounds/"+name+"/Objects/Girls/"+girls[i].name + "/" + girlTimeStrings[j].getName() );
             for(int k = girlStoryStrings.length-1; k >= 0; k--){
-              if(Integer.valueOf(girlStoryStrings[k].getName()) <= currentGirl.story){
+              Integer girlStoryValue = parseIntOrNull(split(girlStoryStrings[k].getName(),'.')[0]);
+              if(girlStoryValue == null) //<>//
+              {
+                continue;
+              }
+              
+              if(girlStoryValue<= currentGirl.story){
                 if(girls[i].ActiveImageName != girlTimeStrings[j].getName() + "|" + girlStoryStrings[k].getName() ){
-                  girls[i].image = loadImage("backgrounds/"+name+"/Objects/Girls/"+girls[i].name + "/" + girlTimeStrings[j] + "/"+ girlStoryStrings[k].getName()  + ".png");
-                  girls[i].glow = loadImage("backgrounds/"+name+"/Objects/Girls/"+girls[i].name + "/" + girlTimeStrings[j] + "/"+ girlStoryStrings[k].getName()  + "glow.png");
+                  girls[i].image = loadImage(girlStoryStrings[k].toString());
+              //    girls[i].glow = loadImage(girlTimeStrings[j] + "/"+ girlStoryValue  + "glow.png");
 
                   girls[i].ActiveImageName = girlTimeStrings[j].getName() + "|" + girlStoryStrings[k].getName();
                 }
@@ -151,20 +160,17 @@ class Location
     }
 
 
-    draw();
+    _draw();
   }
 
-  void draw()
+  void _draw()
   {
-    print("Draw kald");
-
-    for(int i = 0; i > navigationObjects.length ; i++){
+    for(int i = 0; i < navigationObjects.length ; i++){
       navigationObjects[i].draw();
     }
 
-
-    for(int i = 0; i > girls.length ; i++){
-      navigationObjects[i].draw();
+    for(int i = 0; i < girls.length ; i++){
+      girls[i].draw(); //<>//
     }
   }
 }

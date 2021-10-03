@@ -1,5 +1,5 @@
-void mood_change(int x, String girl){ //<>//
-    girl currentGirl = Girls_classes.get(girl); //<>//
+void mood_change(int x, String girl){
+    girl currentGirl = Girls_classes.get(girl);
 
   if(currentGirl != null){
     currentGirl.mood_stat += x;

@@ -69,10 +69,10 @@ int [] load_pos(String girl, String loc){
 void save_game(int nr){
   JSONObject json;
 
-  if(menu_active == false){ //<>// //<>// //<>// //<>//
+  if(menu_active == false){ //<>// //<>// //<>// //<>// //<>// //<>// //<>//
     saveFrame("Save/" + nr +"/save_pic.png");
   }else{
-    PImage img_file = loadImage("Save/save_pic.png"); //<>// //<>// //<>//
+    PImage img_file = loadImage("Save/save_pic.png"); //<>// //<>// //<>// //<>// //<>// //<>//
     img_file.save("Save/" + nr + "/save_pic.png");
     loadMenuButtons[nr].image = img_file;
   }
@@ -105,15 +105,15 @@ void save_game(int nr){
       girl.setInt("mood",girlValue.mood_stat);
       girl.setInt("relationship",girlValue.relationship_stat);
       girl.setInt("maxRelationship",girlValue.max_relationship);
-      girl.setInt("story",girlValue.story); //<>//
+      girl.setInt("story",girlValue.story); //<>// //<>// //<>// //<>//
 
       girlsJsonArray.setJSONObject(counter,girl);
-      counter+= 1; //<>//
+      counter+= 1; //<>// //<>// //<>// //<>//
   }
-  json.setJSONArray("Girls", girlsJsonArray); //<>// //<>// //<>//
+  json.setJSONArray("Girls", girlsJsonArray); //<>// //<>// //<>// //<>// //<>// //<>//
 
   
-  saveJSONObject(json,"Save/"+ nr + "/data.json"); //<>// //<>//
+  saveJSONObject(json,"Save/"+ nr + "/data.json"); //<>// //<>// //<>// //<>// //<>//
 }
 
 void load_game(int nr){

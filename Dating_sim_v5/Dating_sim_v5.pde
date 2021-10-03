@@ -52,7 +52,9 @@ void setup() {
   frameRate(30);
 
   // loading settings
-  thread( "loading" );
+   thread( "loading" );
+
+  
   background(0,0,200);
   textSize(100);
 
@@ -143,7 +145,7 @@ void draw() {
       settings_menu();
     }
 
-  }else if(loading_status < 100){                                                           
+  }else if(loading_status < 1000){                                                           
     background(0,0,255);
     overlay.beginDraw();
     overlay.textAlign(CENTER);
@@ -157,6 +159,8 @@ void draw() {
     overlay.rect(screen_x/2-(200*scale_x),screen_y/2,(400*float(loading_status)/100)*scale_x,50*scale_y);
     overlay.endDraw();
   }else{
+    dialog_active = false;
+    
     can_press = true;
 
     //Writes info text to screen
@@ -166,7 +170,7 @@ void draw() {
 
     if(dialog_active != true){                       //REwork here !
         //Her tegnes alle de forskellige elementer på skærmen.
-      _active_location.update();
+      _active_location._update();
 
       //    if(girl_active == true){        // hvis en pige er akti så updatere den pigen
       //      for (Map.Entry<String,girl> girlsEntry : Girls_classes.entrySet()) {
@@ -233,7 +237,8 @@ void loading(){
     Girls_classes.put(girlName,new girl(girlName));
     loading_status += 1;
   }
-
+  girls = null;
+  
     //Locations 
   File[] locationsStrings = listFiles("backgrounds");
   Locations = new HashMap<String, Location>();  //Det kan være at dictornarying skal opretees her i stedet :?
@@ -241,15 +246,15 @@ void loading(){
   {
     String locationsName = locationsStrings[i].getName();
 
-    //føjer billeder //<>//
-    Locations.put(locationsName,new Location(locationsName)); //<>//
+    //føjer billeder
+    Locations.put(locationsName,new Location(locationsName));
     loading_status += 1;
   }
   _active_location = Locations.get("Amy_room");
   active_background = _active_location.image;
+  locationsStrings = null;
   
-   //<>//
-//Preload //<>//
+//Preload
   ur = loadImage("Assets/ur.png");
   map_icon = loadImage("Assets/map_icon.png");
   phone_icon = loadImage("Assets/phone.png");
@@ -258,7 +263,6 @@ void loading(){
   Arrow_cursor = loadImage("Assets/mouse_arrow_img.png");
   Hand_cursor = loadImage("Assets/mouse_hand_img.png");
 
-  
     //texts
   Dialog_font = createFont("Assets/Fonts/teen.regular.ttf",20);
   Dialog_italic = createFont("Assets/Fonts/teen.italic.ttf",20);
@@ -266,24 +270,29 @@ void loading(){
   Question_font = createFont("Assets/Fonts/quest.ttf",20);
   menu_font = createFont("Assets/Fonts/menu2.ttf",20);
     
+    print("step1");  
     //lyde
   //Menu_sound = new SoundFile(this);
   Menu_sound = new SoundFile(this,"Assets/lyd/menu/sound.mp3");
   Current_sound = Menu_sound;
 
-  File[] music = listFiles("Assets/lyd");              //loader musik
-  for(int i = 0; i< music.length; i++) {
-    try{
-    //føjer billeder
-      music_sounds = (SoundFile [])append(music_sounds, new SoundFile(this,"Assets/lyd/" + music[i].getName() + "/sound.mp3"));
-      music_sounds_names = (String [])append(music_sounds_names, new String(music[i].getName()));
-    } catch(java.lang.RuntimeException e){
-      println(e);
-    }
-    loading_status += 5;
-  }
+    print("step1");  
+
+    //fuck music for now
+
+//  File[] music = listFiles("Assets/lyd");              //loader musik
+//  for(int i = 0; i< music.length; i++) {
+//    try{
+//    //føjer billeder
+//      music_sounds = (SoundFile [])append(music_sounds, new SoundFile(this,"Assets/lyd/" + music[i].getName() + "/sound.mp3"));
+//      music_sounds_names = (String [])append(music_sounds_names, new String(music[i].getName()));
+//    } catch(java.lang.RuntimeException e){
+//      println(e);
+//    }
+//    loading_status += 5;
+//  }
 
   resize_images();
   
-      loading_status = 101;
+      loading_status = 1001;
 }
