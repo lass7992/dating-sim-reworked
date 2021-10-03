@@ -1,0 +1,8 @@
+Player
+default
+happy
+happy| Oh boy it sure are getting late
+happy| i better head home
+loc|player_room
+END|
+

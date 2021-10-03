@@ -1,0 +1,81 @@
+Amy
+default
+happy
+loc|school_yard
+happy|Heeeeey! You must be the new guy? So this must be your first day!
+achive|First day
+happy|are you scared?
+question|Yes, im about to pee my pants!| Not really | Who are you?
+|6|13|19|
+mood|3
+relationship|2
+awkward|10
+amused|Huh? You seem to be a funny guy! I like that! 
+happy|Now please, follow me!
+jump|25
+
+happy|Thats the spirit! 
+happy|Now follow me!
+mood|2
+relationship|1
+jump|25
+
+mood|2
+relationship|1
+happy|Oh sorry! i forgot to introduce myself. Im Amy, we are in the same class. 
+happy|Now please, follow me!
+jump|25
+
+black|in$ gang
+loc|gang
+black|out$ gang
+happy|So here it is, your new class! 
+happy|SCARED Be prepared! They are all psychopaths!
+happy|I’m kidding! This. is. the. best. class. EVER!
+black|in$ class
+loc|class
+black|out$ class
+girl|teacher
+happy| Hey new guy! Im Mrs. Brown. Why don't you present yourself for the class? 
+happy| $ITALIC$ SHE POINTS OUT TO SHOW YOU THE CLASS 
+girl|Player
+happy| NERVOUS uhm, sure 
+happy| NERVOUS Hello Everyone my name is 
+happy| $BOLD$ Thinking what is my name 
+func|name
+happy| it's !NAME 
+happy| $ITALIC$ YOU LOOK AREOUND AND ARE GREATET BY YOUR CLASSMATES 
+girl|Cass
+mood|3
+relationship|4
+space|
+happy|nice to meet you new guy 
+happy|i'm looking forward to get to know you 
+girl|Amy
+space|
+mood|3
+relationship|4
+happy|yeah me 2 
+girl|Olivia
+sugoi|
+sugoi|Hey you:?
+girl|Nicolaj
+sad|
+sad|What a loser
+girl|Teacher
+happy|Thanks you !NAME, you can sit besides William!
+happy|$ITALIC$ SHE POINTS AT A CHAIR BESIDE AT BOY 
+girl|player
+happy| $ITALIC$ You notices Mrs. Brown begin to blush as she points her finger at William.
+happy| $ITALIC$ You walk to your seat and William sends you a slick smile.
+black|in$a few hours later
+black|out$a few hours later
+space|
+happy|Thanks for today 
+girl|Player
+happy|better head home now 
+black|in$ living rooom
+loc|living_room
+black|out$ living room
+END|2
+

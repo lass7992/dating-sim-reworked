@@ -1,0 +1,6 @@
+Amy
+default
+happy
+happy|i'm busy, not now
+END|2
+

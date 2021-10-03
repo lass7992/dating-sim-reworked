@@ -1,0 +1,8 @@
+Amy
+default
+happy
+happy|Hey !NAME :)
+mood|+1
+relationship|+1
+END|1
+

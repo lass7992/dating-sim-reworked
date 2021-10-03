@@ -1,0 +1,4 @@
+living_room|default
+class|uniform
+pool|bikini
+Amy_room|normal

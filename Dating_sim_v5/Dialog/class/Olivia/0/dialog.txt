@@ -1,0 +1,28 @@
+Olivia
+default
+happy
+sad| Hey, how are you doing?
+question| Fine, u fat fuck | okay i guess| i'm ok
+|3|8|12|
+sad|why u like this
+happy|
+sad|why u like this
+sad|why u like this
+sad|why u like this
+sad|why u like this
+END|
+
+
+happy| thats ok
+sad|why u like this
+sad|why u like this
+sad|why u like this
+END|
+
+
+happy|hmmmmm :?
+sad|why u like this
+sad|why u like this
+space|
+END|
+

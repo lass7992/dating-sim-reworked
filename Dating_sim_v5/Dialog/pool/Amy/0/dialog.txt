@@ -1,0 +1,19 @@
+Amy
+bikini
+happy
+happy| Hey, how are you doing?
+question| Fine, u fat fuck | okay i guess| i'm ok
+|3|8|12|
+sad|why u like this
+space|
+END|
+
+
+happy| thats ok
+END|
+
+
+happy|hmmmmm :?
+space|
+END|
+

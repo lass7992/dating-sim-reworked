@@ -1,0 +1,6 @@
+living_room|default
+class|uniform
+gang|uniform
+school_yard|uniform
+pool|bikini
+Amy_room|normal

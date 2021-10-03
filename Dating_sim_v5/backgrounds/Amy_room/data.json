@@ -1,0 +1,26 @@
+{
+  "Navigation": [{
+    "EndTime": 24,
+    "name": "map",
+    "StartTime": 1,
+    "x": 50,
+    "width": 150,
+    "y": 80,
+    "height": 500
+  }],
+  "Triggers": [{
+    "1": 1,
+    "2": "Amy",
+    "3": "not_welcome",
+    "name": "Amy"
+  }],
+  "Girls": [{
+    "EndTime": 10,
+    "name": "Amy",
+    "StartTime": 1,
+    "x": 665,
+    "width": 150,
+    "y": 290,
+    "height": 200
+  }]
+}

@@ -1,0 +1,71 @@
+{
+  "dialog_nr": 1,
+  "active_location": "school_yard",
+  "dialog_location": "story",
+  "dialog_dia": "Start",
+  "clothing_dialog": "default",
+  "dage": 0,
+  "name": "Player",
+  "akward_stat": 0,
+  "time": 6,
+  "dialog_ver": "0",
+  "Girls": [
+    {
+      "mood": 50,
+      "name": "Amy",
+      "relationship": 0,
+      "maxRelationship": 20,
+      "story": 0
+    },
+    {
+      "mood": 50,
+      "name": "BLANK",
+      "relationship": 0,
+      "maxRelationship": 20,
+      "story": 0
+    },
+    {
+      "mood": 50,
+      "name": "Cass",
+      "relationship": 0,
+      "maxRelationship": 20,
+      "story": 0
+    },
+    {
+      "mood": 50,
+      "name": "Jonathan",
+      "relationship": 0,
+      "maxRelationship": 20,
+      "story": 0
+    },
+    {
+      "mood": 50,
+      "name": "Nicolaj",
+      "relationship": 0,
+      "maxRelationship": 20,
+      "story": 0
+    },
+    {
+      "mood": 50,
+      "name": "Olivia",
+      "relationship": 0,
+      "maxRelationship": 20,
+      "story": 0
+    },
+    {
+      "mood": 50,
+      "name": "Player",
+      "relationship": 0,
+      "maxRelationship": 20,
+      "story": 0
+    },
+    {
+      "mood": 50,
+      "name": "Teacher",
+      "relationship": 0,
+      "maxRelationship": 20,
+      "story": 0
+    }
+  ],
+  "active_girl_dialog": "Amy"
+}

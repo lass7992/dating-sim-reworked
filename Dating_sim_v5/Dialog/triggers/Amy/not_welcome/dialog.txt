@@ -1,0 +1,12 @@
+Amy
+normal
+sad
+achive|Creep
+sad|wtf are you doing here you creep
+mood|-3
+relationship|-3
+girl|BLANK
+black|in$
+loc|living_room
+black|out$
+END|2

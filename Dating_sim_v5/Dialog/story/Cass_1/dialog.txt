@@ -1,0 +1,10 @@
+Cass
+default
+happy
+happy| cass:"Hi new guy"
+sad| "How are you ?"
+question| "Fine" | "Not so fine"|
+happy| ""
+space|
+END|123
+

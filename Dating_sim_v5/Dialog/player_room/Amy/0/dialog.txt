@@ -1,0 +1,26 @@
+Amy
+normal
+happy
+sad| Hey, how are you doing?
+question| u fat | okay i guess| i'm ok
+|3|9|13|
+mood|-3
+relationship|-4
+sad|why u like this
+sad|
+END|1
+
+mood|3
+relationship|4
+happy| thats ok
+sad|why u like this
+END|1
+
+
+mood|3
+relationship|4
+happy|hmmmmm :?
+sad|why u like this
+sad|why u like this
+space|
+END|1

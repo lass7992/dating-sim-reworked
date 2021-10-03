@@ -1,0 +1,44 @@
+class info_text{
+  int y_pos, counter = 0;
+  String text;
+
+  int speed = 1;
+  
+  info_text(String temp_text){
+    y_pos = 100;
+    if(info_text.length > 0){
+      if(info_text[info_text.length-1].y_pos > 95){
+        y_pos = info_text[info_text.length-1].y_pos + 10;
+      }
+    }
+    text = temp_text;
+    
+  }
+  
+  void update(){
+    draw_();
+    counter += 1;
+    y_pos -= speed;
+    
+    if(counter >= 100){
+      info_text_instances = (info_text[] )subset(info_text_instances, 1);
+    }
+  
+    
+  }
+  void draw_(){
+
+    overlay.pushMatrix();
+      overlay.beginDraw();
+      overlay.fill(0,0,0, 255-255*(float(counter)/60));
+      overlay.textSize(25*scale_x); 
+      overlay.textAlign(RIGHT, CENTER);      
+      overlay.text(text, screen_x-80,y_pos); 
+      overlay.textSize(25*scale_x);
+      overlay.fill(255,255,255, 255-255*(float(counter)/100));
+      overlay.text(text, screen_x-80,y_pos); 
+      overlay.endDraw();
+    overlay.popMatrix();
+    
+  }
+}

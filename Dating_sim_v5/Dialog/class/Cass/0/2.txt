@@ -1,0 +1,13 @@
+Amy
+default
+happy
+happy|have you made the homework to today?
+sad| i haven't :/
+girl|player
+happy| you can have mine.
+girl|Amy
+mood|+10
+relationship|+4
+amused|thank you
+END|2
+

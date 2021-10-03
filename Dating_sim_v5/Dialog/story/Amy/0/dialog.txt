@@ -1,0 +1,20 @@
+Amy
+uniform
+happy
+space|
+happy| Hi !NAME
+happy| So are you ajusting to the new class?
+happy| Are you catching up?
+question|sort of|yeah| not really
+|6|8|10|
+happy|you will properly do that sometimes
+jump|12
+happy| i'm so glad to hear that
+jump|12
+sad| i'm so sorry about that, can i help in anyway?
+jump|12
+happy| Hey! why don't we study over at my house sometimes
+happy| Common it would be fun :3
+relationship|5
+text|unlocked Amy's house
+END|2
