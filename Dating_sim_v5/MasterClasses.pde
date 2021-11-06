@@ -45,7 +45,7 @@ class ClickableObj {
 
 
 class LocationObject {
-    private PImage image;
+    PImage image;
     PImage glow;
     int x,y,_width,_height;
     int startTime;
@@ -63,6 +63,7 @@ class LocationObject {
     {
         setPos(tempx,tempy,tempWidth,tempHeight);
         setImage(newImg);
+        resizeImage();
         startTime = tempStartTime;
         endTime =tempEndTime;
     }
@@ -79,23 +80,40 @@ class LocationObject {
     {
         x = tempx;
         y = tempy;
-        width = tempWidth;
-        height = tempHeight;
+        _width = tempWidth;
+        _height = tempHeight;
+
+        resizeImage();
     }
 
     void setImage(PImage newImg)
-    {
+    {        
         image = newImg;
-        image.resize((int)(_width*scale_x),(int)(_height*scale_y));
+        resizeImage();
+    }
+
+    public void resizeImage()
+    {
+        if(image != null && _width != 0 && _height != 0){
+            image.resize((int)(_width*scale_x),(int)(_height*scale_y));
+            if(glow != null){
+              glow.resize((int)(_width*scale_x),(int)(_height*scale_y));
+            }
+        }
     }
 
     boolean mouseOver()
     {
-      println("x:" + int(mouseX-x*scale_x));
-      println("y:" + int(mouseY-y*scale_y));
-                  
-      if(alpha(image.get(int(mouseX-x*scale_x) , int(mouseY-y*scale_y))) > 1){      
-        return true;
+        print("\n\n\n");
+        println(_width);
+        println(_height);
+        println(image.width);
+        println(image.height);
+        println(int((mouseX-x*scale_x)/scale_x));
+        println(int((mouseY-y*scale_y)/scale_y));
+
+      if(alpha(image.get(int((mouseX-x*scale_x)/scale_x) , int((mouseY-y*scale_y)/scale_y))) > 1){      
+        return true; //<>//
       }
       return false;
     }
@@ -103,20 +121,22 @@ class LocationObject {
     void draw()
     {
       if(image != null && startTime < time && endTime > time){
+        // println("Draw");
 
         if(mouseOver())
         {
-            println("over");
-
-            overlay.beginDraw();
-            overlay.rect(x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);
-            //overlay.image(glow, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
-            overlay.endDraw();
+            if(glow != null){
+                overlay.beginDraw();
+                overlay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);       
+                overlay.endDraw();
+            }else{
+                rect(x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);
+            }
         }
- //<>//
+
 
         clicklay.beginDraw();
-        clicklay.image(image, x*scale_x , y*scale_y);       //<>// //<>// //<>// //<>//
+        clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);       //<>// //<>// //<>// //<>//
         clicklay.endDraw(); 
       }
     }

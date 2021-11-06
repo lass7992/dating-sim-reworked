@@ -63,7 +63,7 @@ class Location
   Location(String tempName){
     name = tempName;
     image = loadImage("backgrounds/" + tempName + "/background.png");
-    image.resize(screen_x,screen_y);
+
     try{
       JSONObject presets = loadJSONObject("backgrounds/"+ tempName + "/data.json");
       
@@ -107,7 +107,9 @@ class Location
       }
     }catch(Exception e)
     {
-      println("Lokationfejlede" + tempName);
+      println(e+ "\n");
+
+      println("Lokationfejlede" + tempName+ "\n"+ "\n");
     }
   }
 
@@ -119,6 +121,7 @@ class Location
     for(int i = 0; i < navigationObjects.length ; i++){ //Dette skal gøres således at der kan være flere forskellige versioner af billederne istedet for at den skal være dynamisk
       if(navigationObjects[i].image == null){
         navigationObjects[i].image = loadImage("backgrounds/" + name + "/Objects/Objects/"+navigationObjects[i].name + ".png");
+        navigationObjects[i].resizeImage();
       }
     }
 
@@ -138,7 +141,7 @@ class Location
             File[] girlStoryStrings = listFiles("backgrounds/"+name+"/Objects/Girls/"+girls[i].name + "/" + girlTimeStrings[j].getName() );
             for(int k = girlStoryStrings.length-1; k >= 0; k--){
               Integer girlStoryValue = parseIntOrNull(split(girlStoryStrings[k].getName(),'.')[0]);
-              if(girlStoryValue == null) //<>// //<>//
+              if(girlStoryValue == null) //<>//
               {
                 continue;
               }
@@ -146,7 +149,14 @@ class Location
               if(girlStoryValue<= currentGirl.story){
                 if(girls[i].ActiveImageName != girlTimeStrings[j].getName() + "|" + girlStoryStrings[k].getName() ){
                   girls[i].image = loadImage(girlStoryStrings[k].toString());
-              //    girls[i].glow = loadImage(girlTimeStrings[j] + "/"+ girlStoryValue  + "glow.png");
+
+                  //IF glow exist use that
+                  String glowPath = girlTimeStrings[j] + "/"+ girlStoryValue  + "glow.png";
+                  File f = dataFile(UsersFile);
+                  if(f.exists()){
+                    girls[i].glow = loadImage(glowPath);
+                    girls[i].resizeImage();
+                  }
 
                   girls[i].ActiveImageName = girlTimeStrings[j].getName() + "|" + girlStoryStrings[k].getName();
                 }
@@ -170,7 +180,7 @@ class Location
     }
 
     for(int i = 0; i < girls.length ; i++){
-      girls[i].draw(); //<>// //<>//
+      girls[i].draw(); //<>//
     }
   }
 }
