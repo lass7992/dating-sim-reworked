@@ -152,7 +152,7 @@ class Location
 
                   //IF glow exist use that
                   String glowPath = girlTimeStrings[j] + "/"+ girlStoryValue  + "glow.png";
-                  File f = dataFile(UsersFile);
+                  File f = dataFile(glowPath);
                   if(f.exists()){
                     girls[i].glow = loadImage(glowPath);
                     girls[i].resizeImage();

@@ -104,16 +104,8 @@ class LocationObject {
 
     boolean mouseOver()
     {
-        print("\n\n\n");
-        println(_width);
-        println(_height);
-        println(image.width);
-        println(image.height);
-        println(int((mouseX-x*scale_x)/scale_x));
-        println(int((mouseY-y*scale_y)/scale_y));
-
-      if(alpha(image.get(int((mouseX-x*scale_x)/scale_x) , int((mouseY-y*scale_y)/scale_y))) > 1){      
-        return true; //<>//
+      if(alpha(image.get(int((mouseX-x*scale_x)) , int((mouseY-y*scale_y)))) > 1){      
+        return true;
       }
       return false;
     }
@@ -121,7 +113,6 @@ class LocationObject {
     void draw()
     {
       if(image != null && startTime < time && endTime > time){
-        // println("Draw");
 
         if(mouseOver())
         {
@@ -136,7 +127,7 @@ class LocationObject {
 
 
         clicklay.beginDraw();
-        clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);       //<>// //<>// //<>// //<>//
+        clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);
         clicklay.endDraw(); 
       }
     }

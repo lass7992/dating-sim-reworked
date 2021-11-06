@@ -96,35 +96,7 @@ class girl extends LocationObject{ //Lav en ekstra klasse der håndtere det med 
     dialog_text = load_dialog(active_location, name, "0");
   }
   
-  void draw_(){
-    if(preset_location[time].equals(active_location)){
-      //hvis filen for lokalition findes
-      String [] location_file = loadStrings("Assets/Girls/" + name + "/lok/" + active_location + "/data.txt");
-      if(location_file != null){
-          x = int(location_file[0]);
-          y = int(location_file[1]);
-          _width = int(location_file[2]);
-          _height = int(location_file[3]);
-      }else{
-        //pos = load_pos(name, active_location);
-      }
-      
-      if(true){//alpha(image.get(int(mouseX-x*scale_x) , int(mouseY-y*scale_y))) > 1){      
-        mouseclickable = true;
-        mouseclick = new String[2];
-        mouseclick[0] = "Girl";
-        mouseclick[1] = name;
-        if(glow != null){
-          overlay.beginDraw();
-          overlay.image(glow, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
-          overlay.endDraw();
-        }
-      }
-      clicklay.beginDraw();
-      //clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
-      clicklay.endDraw();
-    }
-  }
+ 
   
   void story_checker(){
     println(story_parameters[0]);
