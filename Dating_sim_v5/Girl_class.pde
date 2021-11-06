@@ -72,18 +72,18 @@ class girl extends LocationObject{ //Lav en ekstra klasse der håndtere det med 
           _width = int(location_file[2]);
           _height = int(location_file[3]);
 
-        image = loadImage("Assets/Girls/" + name + "/lok/" + active_location + "/sprite.png");
+        //image = loadImage("Assets/Girls/" + name + "/lok/" + active_location + "/sprite.png");
         
         try{
-          glow = loadImage("Assets/Girls/" + name + "/lok/" + active_location + "/glow.png");
+        //  glow = loadImage("Assets/Girls/" + name + "/lok/" + active_location + "/glow.png");
         }catch(java.lang.RuntimeException e){
-          glow = null;
+        //  glow = null;
         }
       
       }else{     //elllers hvis der ikke er noget billede til tingen så gør den således
         print("fail : ");
         //pos = load_pos(name, active_location); 
-        image = loadImage("Assets/Girls/" + name + "/" + clothing + "/" + mood + "/sprite.png");
+      //  image = loadImage("Assets/Girls/" + name + "/" + clothing + "/" + mood + "/sprite.png");
       }
       
       girl_active = true;
@@ -109,7 +109,7 @@ class girl extends LocationObject{ //Lav en ekstra klasse der håndtere det med 
         //pos = load_pos(name, active_location);
       }
       
-      if(alpha(image.get(int(mouseX-x*scale_x) , int(mouseY-y*scale_y))) > 1){      
+      if(true){//alpha(image.get(int(mouseX-x*scale_x) , int(mouseY-y*scale_y))) > 1){      
         mouseclickable = true;
         mouseclick = new String[2];
         mouseclick[0] = "Girl";
@@ -121,7 +121,7 @@ class girl extends LocationObject{ //Lav en ekstra klasse der håndtere det med 
         }
       }
       clicklay.beginDraw();
-      clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
+      //clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
       clicklay.endDraw();
     }
   }
@@ -166,5 +166,4 @@ class girl extends LocationObject{ //Lav en ekstra klasse der håndtere det med 
     }
 
   }
-  
 }

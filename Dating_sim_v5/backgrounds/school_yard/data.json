@@ -1,0 +1,11 @@
+{
+  "Navigation": [{  }],
+  "Triggers": [{
+    "1": 1,
+    "2": "Amy",
+    "3": "not_welcome",
+    "name": "Amy"
+  }],
+  "Girls": [{
+  }]
+}

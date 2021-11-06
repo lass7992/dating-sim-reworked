@@ -63,7 +63,7 @@ class Location
   Location(String tempName){
     name = tempName;
     image = loadImage("backgrounds/" + tempName + "/background.png");
-
+    image.resize(screen_x,screen_y);
     try{
       JSONObject presets = loadJSONObject("backgrounds/"+ tempName + "/data.json");
       
@@ -138,7 +138,7 @@ class Location
             File[] girlStoryStrings = listFiles("backgrounds/"+name+"/Objects/Girls/"+girls[i].name + "/" + girlTimeStrings[j].getName() );
             for(int k = girlStoryStrings.length-1; k >= 0; k--){
               Integer girlStoryValue = parseIntOrNull(split(girlStoryStrings[k].getName(),'.')[0]);
-              if(girlStoryValue == null) //<>//
+              if(girlStoryValue == null) //<>// //<>//
               {
                 continue;
               }
@@ -170,7 +170,7 @@ class Location
     }
 
     for(int i = 0; i < girls.length ; i++){
-      girls[i].draw(); //<>//
+      girls[i].draw(); //<>// //<>//
     }
   }
 }

@@ -1,6 +1,6 @@
 void Draw_backgorund(){
-  if(active_background != null){
-    image(active_background ,0,0,screen_x,screen_y);
+  if(_active_location != null){
+    image(_active_location.image ,0,0,screen_x,screen_y);
   }
 }
 

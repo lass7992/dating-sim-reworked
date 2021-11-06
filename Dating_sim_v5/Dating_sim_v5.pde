@@ -245,13 +245,16 @@ void loading(){
   for(int i = 0; i< locationsStrings.length; i++)
   {
     String locationsName = locationsStrings[i].getName();
-
+    if(locationsName.equals("phone"))
+    {
+      continue;
+    }
     //føjer billeder
     Locations.put(locationsName,new Location(locationsName));
     loading_status += 1;
   }
   _active_location = Locations.get("Amy_room");
-  active_background = _active_location.image;
+  //active_background = _active_location.image;
   locationsStrings = null;
   
 //Preload
@@ -273,8 +276,8 @@ void loading(){
     print("step1");  
     //lyde
   //Menu_sound = new SoundFile(this);
-  Menu_sound = new SoundFile(this,"Assets/lyd/menu/sound.mp3");
-  Current_sound = Menu_sound;
+//  Menu_sound = new SoundFile(this,"Assets/lyd/menu/sound.mp3");
+//  Current_sound = Menu_sound;
 
     print("step1");  
 

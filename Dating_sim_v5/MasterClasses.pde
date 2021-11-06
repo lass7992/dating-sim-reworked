@@ -45,7 +45,7 @@ class ClickableObj {
 
 
 class LocationObject {
-    PImage image;
+    private PImage image;
     PImage glow;
     int x,y,_width,_height;
     int startTime;
@@ -86,10 +86,14 @@ class LocationObject {
     void setImage(PImage newImg)
     {
         image = newImg;
+        image.resize((int)(_width*scale_x),(int)(_height*scale_y));
     }
 
     boolean mouseOver()
     {
+      println("x:" + int(mouseX-x*scale_x));
+      println("y:" + int(mouseY-y*scale_y));
+                  
       if(alpha(image.get(int(mouseX-x*scale_x) , int(mouseY-y*scale_y))) > 1){      
         return true;
       }
@@ -99,7 +103,6 @@ class LocationObject {
     void draw()
     {
       if(image != null && startTime < time && endTime > time){
-        println("Draw");
 
         if(mouseOver())
         {
@@ -110,10 +113,10 @@ class LocationObject {
             //overlay.image(glow, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);      
             overlay.endDraw();
         }
-
+ //<>//
 
         clicklay.beginDraw();
-        clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);       //<>// //<>// //<>// //<>//
+        clicklay.image(image, x*scale_x , y*scale_y);       //<>// //<>// //<>// //<>//
         clicklay.endDraw(); 
       }
     }
