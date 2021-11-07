@@ -15,29 +15,19 @@ void draw_hud(){
   clicklay.image(phone_icon,screen_x-screen_x/15,(10)*scale_y);
   clicklay.endDraw();
     
+
+    int width = screen_x/10;
+    int height = screen_y/20;
   pushMatrix();              //skriver tiden :?
     overlay.beginDraw();
     overlay.textSize(40); 
-    overlay.textAlign(LEFT, CENTER);
+    overlay.textAlign(CENTER, CENTER);
     overlay.fill(50,50,50);
-    overlay.rect(screen_x/2.02, screen_y/30,screen_x/10, screen_y/20);
+    overlay.rect(screen_x/2.02 -width/2, screen_y/30,width, height);
     overlay.fill(50,255,50);
     overlay.text(str(time) + ":00", screen_x/2, screen_y/20);   
     overlay.endDraw();
   popMatrix(); 
-  
-  clicklay.beginDraw();
-  //awkward'o meter
-  pushMatrix();              //skriver tiden :?
-    clicklay.image(awkward_meter_img,0,screen_y-awkward_meter_img.height *screen_y/720,awkward_meter_img.width *screen_x/1280, awkward_meter_img.height*screen_y/720);
-    clicklay.stroke(0,0,0);
-    clicklay.fill(0,200,0);
-    clicklay.translate(screen_x/12.9,screen_y-awkward_meter_img.height/3.5 *screen_y/720);
-    clicklay.rotate(2+(awkward_stat));
-    clicklay.rect(-5,10,10,50);
-  popMatrix(); 
-  clicklay.endDraw();
-
 }
 void fade_over(){
         can_press = false;

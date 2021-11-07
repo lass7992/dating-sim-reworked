@@ -55,8 +55,6 @@ class LocationObject {
     String ActiveImageName;
     String type;
 
-    boolean noImage = false;
-
     LocationObject()
     {
         
@@ -94,7 +92,6 @@ class LocationObject {
     {        
         image = newImg;
         resizeImage();
-        noImage = false;
     }
 
     public void resizeImage()
@@ -109,23 +106,15 @@ class LocationObject {
 
     boolean mouseOver()
     {
-        if(image != null){
-            if(alpha(image.get(int((mouseX-x*scale_x)) , int((mouseY-y*scale_y)))) > 1){      
-                return true;
-            }
-            return false;
-        }
-        else{
-            if(mouseX-x*scale_x > 0 && mouseX-x*scale_x < _width*scale_x  && mouseY-y*scale_y > 0 && mouseY-y*scale_y < _height*scale_y){      
-                return true;
-            }
-            return false;
-        }
+      if(alpha(image.get(int((mouseX-x*scale_x)) , int((mouseY-y*scale_y)))) > 1){      
+        return true;
+      }
+      return false;
     }
     
     void draw()
     { //<>//
-      if(startTime < time && endTime > time){
+      if(image != null && startTime < time && endTime > time){
 
         if(mouseOver())
         {
@@ -145,12 +134,10 @@ class LocationObject {
 
         if(image != null){
             clicklay.beginDraw();
-            clicklay.fill(255,255,255,255);
             clicklay.image(image, x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);
             clicklay.endDraw();
         }else{
             clicklay.beginDraw();
-            clicklay.fill(0,0,0,0);
             clicklay.rect(x*scale_x , y*scale_y, _width*scale_x , _height*scale_y);
             clicklay.endDraw();
         } 

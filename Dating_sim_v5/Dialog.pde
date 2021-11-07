@@ -7,7 +7,7 @@ void run_dialog(){
     new_location = active_location;
     dialog_active = false;
     time += int(dialog_text[dialog_nr].substring(dialog_text[dialog_nr].indexOf("|")+1));
-    set_location(active_location); //<>// //<>// //<>// //<>// //<>//
+    set_location(active_location);
     speak = false;
    
   }else if(dialog_text[dialog_nr].substring(0, dialog_text[dialog_nr].indexOf("|")).equals("jump")){     /// hvis det er et spørgsmål

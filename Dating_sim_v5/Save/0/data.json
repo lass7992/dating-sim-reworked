@@ -1,22 +1,15 @@
 {
-  "dialog_nr": 3,
-  "active_location": "Amy_room",
-  "dialog_location": "Controlling",
-  "dialog_dia": "time",
-  "clothing_dialog": "default",
-  "dage": 3,
-  "name": "ann",
-  "akward_stat": 10,
-  "time": 9,
-  "dialog_ver": "late",
+  "dialog_nr": 16,
+  "active_location": "amy_room",
+  "dialog_location": "amy_room",
+  "dialog_dia": "Amy",
+  "clothing_dialog": "uniform",
+  "dage": 0,
+  "name": "Player",
+  "akward_stat": 0,
+  "time": 8,
+  "dialog_ver": "0",
   "Girls": [
-    {
-      "mood": 50,
-      "name": "Olivia",
-      "relationship": 0,
-      "maxRelationship": 20,
-      "story": 0
-    },
     {
       "mood": 50,
       "name": "BLANK",
@@ -25,9 +18,9 @@
       "story": 0
     },
     {
-      "mood": 53,
+      "mood": 50,
       "name": "Cass",
-      "relationship": 4,
+      "relationship": 0,
       "maxRelationship": 20,
       "story": 0
     },
@@ -40,32 +33,18 @@
     },
     {
       "mood": 50,
-      "name": "Nicolaj",
-      "relationship": 0,
-      "maxRelationship": 20,
-      "story": 0
-    },
-    {
-      "mood": 50,
-      "name": "Jonathan",
-      "relationship": 0,
-      "maxRelationship": 20,
-      "story": 0
-    },
-    {
-      "mood": 50,
       "name": "Teacher",
       "relationship": 0,
       "maxRelationship": 20,
       "story": 0
     },
     {
-      "mood": 56,
+      "mood": 50,
       "name": "Amy",
-      "relationship": 6,
+      "relationship": 5,
       "maxRelationship": 20,
       "story": 0
     }
   ],
-  "active_girl_dialog": "Player"
+  "active_girl_dialog": "Amy"
 }

@@ -159,8 +159,6 @@ void draw() {
     overlay.rect(screen_x/2-(200*scale_x),screen_y/2,(400*float(loading_status)/100)*scale_x,50*scale_y);
     overlay.endDraw();
   }else{
-    dialog_active = false;
-    
     can_press = true;
 
     //Writes info text to screen
@@ -168,34 +166,35 @@ void draw() {
       info_text_instances[i].update();
     }  
 
-    if(dialog_active != true){                       //REwork here !
+    if(dialog_active != true){                       
         //Her tegnes alle de forskellige elementer på skærmen.
       _active_location._update();
 
-      //    if(girl_active == true){        // hvis en pige er akti så updatere den pigen
-      //      for (Map.Entry<String,girl> girlsEntry : Girls_classes.entrySet()) {
-      //        girlsEntry.getValue().draw_();
-      //      }
-      //    }
+
+
         
-    //   |||||||||||||||||||||||||||| hvis mobilen ikke er aktiv
+      //hvis mobilen ikke er aktiv
       if(phone_active == false){
-        draw_hud();
-        
-        if(mouse_over() || mouseclickable == true){
+        draw_hud();         
+          
+
+        if(mouse_over() || mouseclickable == true){ 
           cursor(Hand_cursor,15,5);
         }else{
           cursor(Arrow_cursor,15,5);
         }
-        
+                                                            //REwork here !
         if(transition){
           fade_over();
         }
         if(time >= 21 && active_location.equals("player_room") != true){ dialog_text = load_dialog("Controlling", "time", "late"); }
-        
+          
+
+           //REwork here !
       }else{ // hvis mobilen er aktiv så tegner den den
         draw_phone_contact();
       }
+
     }else if(dialog_active == true){
       if(black_screen == false){
         run_dialog();

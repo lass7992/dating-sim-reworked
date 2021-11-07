@@ -49,6 +49,8 @@ void menu(){
     active_location = "amy_room";    
     dialog_text = load_dialog("story", "Start","0");
 
+    dialog_active = false; //DETTE SKAL FJERNES!! TODODO
+
     can_press = false;
     mousePressed = false;
     game_startet = true;

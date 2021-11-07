@@ -63,6 +63,7 @@ class Location
   Location(String tempName){
     name = tempName;
     image = loadImage("backgrounds/" + tempName + "/background.png");
+    image.resize(screen_x,screen_y);
 
     try{
       JSONObject presets = loadJSONObject("backgrounds/"+ tempName + "/data.json");
@@ -83,6 +84,7 @@ class Location
           navigationObjects[i].y = navigation.getInt("y");
           navigationObjects[i]._width = navigation.getInt("width");
           navigationObjects[i]._height = navigation.getInt("height");
+          navigationObjects[i].type = "navigation";
         }
     
     
@@ -99,8 +101,11 @@ class Location
           girls[i].y = girlJson.getInt("y");
           girls[i]._width = girlJson.getInt("width");
           girls[i]._height = girlJson.getInt("height");
+          girls[i].type = "girl";
         }
           //TODO DET SKAL LAVES ET ELLER ANDET MED TRIGGERNE HER o.o
+        
+
       }else{
         navigationObjects = new LocationObject[0];
         girls = new LocationObject[0];
@@ -113,6 +118,11 @@ class Location
     }
   }
 
+//TODO denne skal laves
+  void testTriggers(){
+
+  }
+
 
   void _update()
   {
@@ -120,8 +130,17 @@ class Location
 
     for(int i = 0; i < navigationObjects.length ; i++){ //Dette skal gøres således at der kan være flere forskellige versioner af billederne istedet for at den skal være dynamisk
       if(navigationObjects[i].image == null){
-        navigationObjects[i].image = loadImage("backgrounds/" + name + "/Objects/Objects/"+navigationObjects[i].name + ".png");
-        navigationObjects[i].resizeImage();
+
+        String imagePath = sketchPath("backgrounds/" + name + "/Objects/Objects/"+navigationObjects[i].name + ".png");
+        File f = new File(imagePath);
+
+        if(f.exists()){
+          navigationObjects[i].image = loadImage(imagePath);
+          navigationObjects[i].resizeImage();
+          navigationObjects[i].noImage = false;
+        }else{
+          navigationObjects[i].noImage = true;
+        }
       }
     }
 
@@ -146,19 +165,24 @@ class Location
                 continue;
               }
               
-              if(girlStoryValue<= currentGirl.story){
+              if(girlStoryValue <= currentGirl.story){
                 if(girls[i].ActiveImageName != girlTimeStrings[j].getName() + "|" + girlStoryStrings[k].getName() ){
                   girls[i].image = loadImage(girlStoryStrings[k].toString());
 
+
+
                   //IF glow exist use that
-                  String glowPath = girlTimeStrings[j] + "/"+ girlStoryValue  + "glow.png";
-                  File f = dataFile(glowPath);
+                  String glowPath = sketchPath(girlTimeStrings[j] + "/"+ girlStoryValue  + "glow.png");
+                  File f = new File(glowPath);
+                  println(f);
+                  println(f.exists());
                   if(f.exists()){
                     girls[i].glow = loadImage(glowPath);
-                    girls[i].resizeImage();
                   }
-
+                  
+                  girls[i].resizeImage();
                   girls[i].ActiveImageName = girlTimeStrings[j].getName() + "|" + girlStoryStrings[k].getName();
+                  girls[i].lastUpdatedTime = time; // sets time for last update.
                 }
                 break;
               }
@@ -178,7 +202,7 @@ class Location
     for(int i = 0; i < navigationObjects.length ; i++){
       navigationObjects[i].draw();
     }
-
+ //<>//
     for(int i = 0; i < girls.length ; i++){
       girls[i].draw(); //<>//
     }

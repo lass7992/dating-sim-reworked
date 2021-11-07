@@ -10,11 +10,10 @@ String [] load_dialog(String location, String dia, String ver){
       dialog_file = loadStrings("Dialog/" + location + "/" + dia + "/" + ver +  "/dialog.txt"); 
   }else{
       int temp = round(random(0,int(listFiles("Dialog/" + location + "/" + dia + "/" + ver).length)-1));
-      print(temp);
       dialog_file = loadStrings("Dialog/" + location + "/" + dia + "/" + ver +"/" + temp  +".txt");               // GØR SÅLEDES AT den har en randomisering i dialogen :?
   } 
    
-  active_girl_dialog = dialog_file[0];
+  active_girl_dialog = dialog_file[0]; //<>//
   clothing_dialog = dialog_file[1];
   current_mood = dialog_file[2];
   set_girl_dialog(active_girl_dialog, clothing_dialog, current_mood);
@@ -51,27 +50,34 @@ String [][] load_location(String location){
 
 
 
+// //Depricated DETTE ER DUMT. JEG SKAL BARE BRUGE FAST VIEWPOINT VÆRIDER.
 int [] load_pos(String girl, String loc){
-  int [] pos = new int[4];
-  String [] location_file = loadStrings("Assets/Girls/" + girl +  "/Data/location/" + loc + "/data.txt");
+  int [] pos = {900,200,150,400};
+
+  return(pos);  
+
+
+
+
+  // String [] location_file = loadStrings("Assets/Girls/" + girl +  "/Data/location/" + loc + "/data.txt");
   
-  pos[0] = int(location_file[0]);
-  pos[1] = int(location_file[1]);
-  pos[2] = int(location_file[2]);
-  pos[3] = int(location_file[3]);
+  // pos[0] = int(location_file[0]);
+  // pos[1] = int(location_file[1]);
+  // pos[2] = int(location_file[2]);
+  // pos[3] = int(location_file[3]);
   
   
   
-  return(pos);
+  // return(pos);
 }
 
 
 void save_game(int nr){
   JSONObject json;
-
+ //<>// //<>//
   if(menu_active == false){ //<>// //<>// //<>// //<>// //<>// //<>// //<>//
     saveFrame("Save/" + nr +"/save_pic.png");
-  }else{
+  }else{ //<>// //<>//
     PImage img_file = loadImage("Save/save_pic.png"); //<>// //<>// //<>// //<>// //<>// //<>//
     img_file.save("Save/" + nr + "/save_pic.png");
     loadMenuButtons[nr].image = img_file;
@@ -104,15 +110,15 @@ void save_game(int nr){
       girl.setString("name",girlValue.name);
       girl.setInt("mood",girlValue.mood_stat);
       girl.setInt("relationship",girlValue.relationship_stat);
-      girl.setInt("maxRelationship",girlValue.max_relationship);
+      girl.setInt("maxRelationship",girlValue.max_relationship); //<>// //<>//
       girl.setInt("story",girlValue.story); //<>// //<>// //<>// //<>//
 
-      girlsJsonArray.setJSONObject(counter,girl);
+      girlsJsonArray.setJSONObject(counter,girl); //<>// //<>//
       counter+= 1; //<>// //<>// //<>// //<>//
-  }
+  } //<>// //<>//
   json.setJSONArray("Girls", girlsJsonArray); //<>// //<>// //<>// //<>// //<>// //<>//
 
-  
+   //<>// //<>//
   saveJSONObject(json,"Save/"+ nr + "/data.json"); //<>// //<>// //<>// //<>// //<>//
 }
 
@@ -158,13 +164,13 @@ void load_game(int nr){
 
 
 
-      menu_active = false;
-      dialog_active = true;
-      
-      active_location = "living_room";
-      active_background = loadImage("backgrounds/" + "living_room" + "/background.png");
-      
-      dialog_text = load_dialog("story", "Start","0");   
+    menu_active = false;
+    dialog_active = true;
+    
+    active_location = "living_room";
+    active_background = loadImage("backgrounds/" + "living_room" + "/background.png");
+    
+    dialog_text = load_dialog("story", "Start","0");   
       
      
 

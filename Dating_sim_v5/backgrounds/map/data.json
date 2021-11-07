@@ -1,11 +1,53 @@
 {
-  "Navigation": [{  }],
+  "Navigation": [{
+    "EndTime": 24,
+    "StartTime": 1,
+    "name": "living_room",
+    "x": 600,
+    "y": 200,
+    "width": 300,
+    "height": 150
+  },{
+    "EndTime": 24,
+    "StartTime": 1,
+    "name": "Amy_room",
+    "x": 1000,
+    "y": 200,
+    "width": 300,
+    "height": 150
+  },{
+    "EndTime": 24,
+    "StartTime": 1,
+    "name": "school_yard",
+    "x": 30,
+    "y": 50,
+    "width": 350,
+    "height": 270
+  },{
+    "EndTime": 24,
+    "StartTime": 1,
+    "name": "pool",
+    "x": 450,
+    "y": 600,
+    "width": 270,
+    "height": 150
+  },{
+    "EndTime": 24,
+    "StartTime": 1,
+    "name": "map_2",
+    "x": 400,
+    "y": 0,
+    "width": 60,
+    "height": 120
+  }
+],
   "Triggers": [{
     "1": 1,
     "2": "Amy",
     "3": "not_welcome",
     "name": "Amy"
   }],
-  "Girls": [{
-  }]
+  "Girls": []
 }
+
+

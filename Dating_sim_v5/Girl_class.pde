@@ -23,10 +23,14 @@ class girl extends LocationObject{ //Lav en ekstra klasse der håndtere det med 
 
   girl(String name_){
     name = name_;
-    load_preset();    
+    //load_preset();    
     load_story();
   }
   
+  
+
+
+  //Depricated
   void load_preset(){     //// load lige presettet ind
     preset_location = new String[24];
     
@@ -47,6 +51,7 @@ class girl extends LocationObject{ //Lav en ekstra klasse der håndtere det med 
     }
   }
   
+
   
   void check_girls(){    
     if(preset_location[time].equals(active_location)){
@@ -93,7 +98,7 @@ class girl extends LocationObject{ //Lav en ekstra klasse der håndtere det med 
   }
 
   void pressed(){
-    dialog_text = load_dialog(active_location, name, "0");
+    dialog_text = load_dialog(active_location, name, str(story));
   }
   
  

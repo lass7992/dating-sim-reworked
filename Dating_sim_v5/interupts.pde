@@ -8,7 +8,6 @@ void mouseReleased(){
   }else if (mouseButton == LEFT){
     
     if(dialog_active == true && qust_active != true && dialog_next > 2){
-      print(text_done);
       if(text_done == 3){
         dialog_char_at = 0;
         dialog_nr ++;
@@ -26,13 +25,26 @@ void mouseReleased(){
     if(dialog_active != true && menu_active != true && phone_active != true && can_press == true){
     
       if(mouseclickable == true){
-        if(mouseclick[0].equals("Girl")){
+        println("step 1");
+        if(mouseclick[0].equals("girl")){
+
           girl currentGirl = Girls_classes.get(mouseclick[1]);
           if(currentGirl != null){
             currentGirl.pressed();
           }
         }
       }
+
+      if(mouseclickable == true){
+        if(mouseclick[0].equals("navigation")){
+          Location tempLocation = Locations.get(mouseclick[1]);
+          if(tempLocation != null){
+            set_location(tempLocation);
+//            _active_location = tempLocation;
+          }
+        }
+      }
+
   
       
   
@@ -131,11 +143,13 @@ Boolean mouse_over(){
   Boolean mouse = false;
   if(location_data != null){
   
-    for(int i = 0; i < location_data.length; i++){
-      if(can_press == true && mouseX > int(location_data[i][0])*scale_x && mouseX < int(location_data[i][0])*scale_x + int(location_data[i][2])*scale_x && mouseY > int(location_data[i][1])*scale_y && mouseY < int(location_data[i][1])*scale_y + int(location_data[i][3])*scale_y){
-        mouse = true;
-      }
-    } 
+      // Udgangene er faktiske objekter nu :?  TODO DET KAN DOG VÆRE AT DETTE SKAL GØRES SEJT :?
+    // for(int i = 0; i < location_data.length; i++){
+    //   if(can_press == true && mouseX > int(location_data[i][0])*scale_x && mouseX < int(location_data[i][0])*scale_x + int(location_data[i][2])*scale_x && mouseY > int(location_data[i][1])*scale_y && mouseY < int(location_data[i][1])*scale_y + int(location_data[i][3])*scale_y){
+    //     mouse = true;
+    //   }
+    // } 
+
     if(phone_active == true && can_press == true){
       if(can_press == true && mouseX > 830*scale_x && mouseX < 1280*scale_x && mouseY > 0 && mouseY < 800*scale_y){   /// trykker ude for skærmen
         mouse = true;
