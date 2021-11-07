@@ -204,7 +204,7 @@ namespace DatingSimGenerator
         public Girl(string path) : base(path)
         {
             clothes = new List<GirlClothes>();
-            s
+            
             //Loads clothes
             string clothFolder = basePath + "\\"+ this.name;
             if (Directory.Exists(clothFolder))
